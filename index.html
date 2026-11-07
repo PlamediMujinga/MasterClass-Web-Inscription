@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscription – Master Class Programmation Web | Kaléidoscope Group</title>
+  <meta name="description" content="Inscrivez-vous à la Master Class Programmation Web (HTML, CSS, JS, PHP) du 16 au 27 novembre 2026 au Centre Bera.">
+  <meta name="theme-color" content="#5a2a0a">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <!-- Courbes dorées de l'affiche (se tracent une seule fois au chargement) -->
+  <svg class="vagues" viewBox="0 0 800 900" preserveAspectRatio="xMinYMin slice" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="degrade-or" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#e8c56e"/>
+        <stop offset="1" stop-color="#b07a1a"/>
+      </linearGradient>
+    </defs>
+    <path class="vague" pathLength="1" d="M-20 110 C 180 30, 430 -30, 650 70 S 910 300, 870 540"/>
+    <path class="vague" pathLength="1" d="M-20 160 C 220 70, 470 10, 690 140 S 850 390, 810 650"/>
+    <path class="vague" pathLength="1" d="M-20 215 C 250 120, 500 60, 720 200 S 800 430, 770 720"/>
+  </svg>
+
+  <div class="page">
+
+    <!-- ===== Colonne gauche : l'affiche ===== -->
+    <header class="affiche">
+      <div class="affiche-haut">
+        <p class="presente"><span class="presente-marque">Kaléidoscope</span> <span class="presente-groupe">Group</span> présente</p>
+
+        <svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <path d="M6 16V6h14M44 6h14v10M6 48v10h14M44 58h14V48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/>
+          <path d="M23 15v34M23 33l20-18M28 29l17 20" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="square"/>
+        </svg>
+      </div>
+
+      <p class="surtitre">Programmation web</p>
+      <h1 class="titre"><span>Master</span> <span>Class</span></h1>
+      <p class="techs">HTML - CSS - JS - PHP</p>
+
+      <dl class="tarifs">
+        <div class="tarif">
+          <dt>Montant</dt>
+          <dd>20$</dd>
+        </div>
+        <div class="tarif">
+          <dt>Inscription</dt>
+          <dd>5000<small>fc</small></dd>
+        </div>
+      </dl>
+
+      <ul class="infos">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <div>
+            <p class="info-label">Lieu :</p>
+            <p class="info-valeur"><strong>Home 8</strong> Local 81 - Centre Bera</p>
+          </div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4M8 14h2M12 14h2M16 14h2M8 17.5h2M12 17.5h2"/></svg>
+          <div>
+            <p class="info-valeur">Lundi 16 - Vendredi 27<br>novembre 2026</p>
+            <p class="compte" id="compte-a-rebours" aria-live="polite"></p>
+          </div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 3h3.5l1.8 4.6-2.2 1.5a11 11 0 0 0 5.8 5.8l1.5-2.2L20 14.5V18a2 2 0 0 1-2 2A15 15 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>
+          <div>
+            <p class="info-label">Plus d'informations :</p>
+            <p class="info-valeur info-tel">
+              <a href="tel:+243860983465">+243 860983465</a>
+              <a href="tel:+243981356302">981356302</a>
+              <a href="tel:+243963861302">963861302</a>
+            </p>
+          </div>
+        </li>
+      </ul>
+
+      <a class="lien-formulaire" href="#inscription">Je m'inscris</a>
+    </header>
+
+    <!-- ===== Colonne droite : l'inscription ===== -->
+    <main class="inscription" id="inscription">
+
+      <form class="carte" id="form-inscription" novalidate>
+        <h2 class="carte-titre">Je m'inscris</h2>
+        <p class="carte-intro">Deux minutes suffisent. Une confirmation vous est envoyée par mail.</p>
+
+        <div class="progression" aria-hidden="true"><div class="progression-barre" id="progression-barre"></div></div>
+        <p class="progression-texte" id="progression-texte" aria-live="polite">0 réponse sur 5</p>
+
+        <!-- Coordonnées -->
+        <fieldset class="bloc">
+          <legend class="etiquette">Vos coordonnées</legend>
+
+          <div class="grille-2">
+            <div class="champ">
+              <label for="prenom">Prénom</label>
+              <input id="prenom" name="prenom" type="text" autocomplete="given-name" aria-describedby="erreur-prenom" required>
+              <p class="erreur" id="erreur-prenom"></p>
+            </div>
+            <div class="champ">
+              <label for="nom">Nom</label>
+              <input id="nom" name="nom" type="text" autocomplete="family-name" aria-describedby="erreur-nom" required>
+              <p class="erreur" id="erreur-nom"></p>
+            </div>
+          </div>
+
+          <div class="champ">
+            <label for="email">Adresse mail</label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="nom@exemple.com" aria-describedby="erreur-email" required>
+            <p class="erreur" id="erreur-email"></p>
+          </div>
+
+          <div class="champ">
+            <label for="telephone">Numéro de téléphone</label>
+            <input id="telephone" name="telephone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+243 8xx xxx xxx" aria-describedby="aide-telephone erreur-telephone" required>
+            <p class="aide" id="aide-telephone">Un numéro sur lequel nous pouvons vous joindre.</p>
+            <p class="erreur" id="erreur-telephone"></p>
+          </div>
+        </fieldset>
+
+        <!-- Questionnaire -->
+        <fieldset class="bloc">
+          <legend class="etiquette">Votre niveau</legend>
+
+          <fieldset class="question">
+            <legend>Avez-vous déjà des notions en programmation web ?</legend>
+            <div class="choix-liste">
+              <label class="choix">
+                <input type="radio" name="connait_web" value="aucune" aria-describedby="erreur-connait_web">
+                <span class="choix-case" aria-hidden="true"></span>
+                <span class="choix-texte"><strong>Non, je pars de zéro</strong></span>
+              </label>
+              <label class="choix">
+                <input type="radio" name="connait_web" value="notions" aria-describedby="erreur-connait_web">
+                <span class="choix-case" aria-hidden="true"></span>
+                <span class="choix-texte"><strong>Oui, quelques notions</strong></span>
+              </label>
+              <label class="choix">
+                <input type="radio" name="connait_web" value="pratique" aria-describedby="erreur-connait_web">
+                <span class="choix-case" aria-hidden="true"></span>
+                <span class="choix-texte"><strong>Oui, je pratique déjà</strong></span>
+              </label>
+            </div>
+            <p class="erreur" id="erreur-connait_web"></p>
+          </fieldset>
+
+          <!-- Ces questions ne s'ouvrent que si la personne a déjà des notions -->
+          <div class="deplie" id="suite-questionnaire" data-ouvert="false" inert>
+            <div class="deplie-contenu">
+
+              <fieldset class="question">
+                <legend>Que connaissez-vous déjà ? <span class="optionnel">Cochez tout ce qui s'applique.</span></legend>
+                <div class="choix-liste choix-liste--puces">
+                  <label class="choix choix--puce">
+                    <input type="checkbox" name="technologies" value="html">
+                    <span class="choix-case" aria-hidden="true"></span>
+                    <span class="choix-texte">HTML</span>
+                  </label>
+                  <label class="choix choix--puce">
+                    <input type="checkbox" name="technologies" value="css">
+                    <span class="choix-case" aria-hidden="true"></span>
+                    <span class="choix-texte">CSS</span>
+                  </label>
+                  <label class="choix choix--puce">
+                    <input type="checkbox" name="technologies" value="bootstrap">
+                    <span class="choix-case" aria-hidden="true"></span>
+                    <span class="choix-texte">Bootstrap</span>
+                  </label>
+                  <label class="choix choix--puce">
+                    <input type="checkbox" name="technologies" value="javascript">
+                    <span class="choix-case" aria-hidden="true"></span>
+                    <span class="choix-texte">JavaScript</span>
+                  </label>
+                  <label class="choix choix--puce">
+                    <input type="checkbox" name="technologies" value="php">
+                    <span class="choix-case" aria-hidden="true"></span>
+                    <span class="choix-texte">PHP</span>
+                  </label>
+                  <label class="choix choix--puce">
+                    <input type="checkbox" name="technologies" value="mysql">
+                    <span class="choix-case" aria-hidden="true"></span>
+                    <span class="choix-texte">MySQL</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <fieldset class="question">
+                <legend>Comment décririez-vous votre niveau ?</legend>
+                <div class="choix-liste">
+                  <label class="choix">
+                    <input type="radio" name="niveau" value="debutant" aria-describedby="erreur-niveau">
+                    <span class="choix-case" aria-hidden="true"></span>
+                    <span class="choix-texte"><strong>Débutant</strong><small>J'ai vu les bases, j'ai encore besoin d'être guidé.</small></span>
+                  </label>
+                  <label class="choix">
+                    <input type="radio" name="niveau" value="intermediaire" aria-describedby="erreur-niveau">
+                    <span class="choix-case" aria-hidden="true"></span>
+                    <span class="choix-texte"><strong>Intermédiaire</strong><small>Je réalise de petites pages ou de petits projets seul.</small></span>
+                  </label>
+                  <label class="choix">
+                    <input type="radio" name="niveau" value="avance" aria-describedby="erreur-niveau">
+                    <span class="choix-case" aria-hidden="true"></span>
+                    <span class="choix-texte"><strong>Avancé</strong><small>Je développe des sites ou des applications complètes.</small></span>
+                  </label>
+                </div>
+                <p class="erreur" id="erreur-niveau"></p>
+              </fieldset>
+
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Champ piège : invisible pour les humains, rempli par les robots -->
+        <div class="piege" aria-hidden="true">
+          <label>Ne pas remplir <input type="text" name="site_web" tabindex="-1" autocomplete="off"></label>
+        </div>
+
+        <button class="bouton" type="submit" id="bouton-envoi">
+          <span class="bouton-texte">Confirmer mon inscription</span>
+          <span class="bouton-chargement" aria-hidden="true"></span>
+        </button>
+        <p class="statut" id="statut" role="status"></p>
+        <p class="mention">Vos informations servent uniquement à l'organisation de la Master Class.</p>
+      </form>
+
+      <!-- Affiché après une inscription réussie -->
+      <section class="carte succes" id="succes" aria-labelledby="succes-titre" tabindex="-1" hidden>
+        <svg class="succes-coche" viewBox="0 0 52 52" aria-hidden="true" focusable="false">
+          <circle cx="26" cy="26" r="24" pathLength="1"/>
+          <path d="M15 27l8 8 15-17" pathLength="1"/>
+        </svg>
+        <h2 class="carte-titre" id="succes-titre">Inscription enregistrée</h2>
+        <p class="succes-message" id="succes-message"></p>
+        <p class="succes-mail" id="succes-mail"></p>
+
+        <dl class="recap">
+          <div><dt>Lieu</dt><dd>Home 8, Local 81 - Centre Bera</dd></div>
+          <div><dt>Dates</dt><dd>Du lundi 16 au vendredi 27 novembre 2026</dd></div>
+        </dl>
+      </section>
+    </main>
+  </div>
+
+  <footer class="pied">
+    <p>© 2026 Kaléidoscope Group</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
